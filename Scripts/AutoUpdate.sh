@@ -16,10 +16,10 @@ EOF
     chmod +x "$SCRIPT_PATH"
 
     if crontab -l 2>/dev/null | grep -Fq "$SCRIPT_PATH"; then
-        echo "Cronjob existiert bereits – wird nicht erneut hinzugefügt."
+        echo "Cronjob allready exist."
     else
         (crontab -l 2>/dev/null; echo "$CRON_ENTRY") | crontab -
-        echo "✅ Cronjob wurde hinzugefügt: $CRON_ENTRY"
+        echo "Cronjob successfully added: $CRON_ENTRY"
     fi
 }
 
@@ -43,6 +43,6 @@ case "$1" in
         remove
         ;;
     *)
-        echo "❓ Verwendung: $0 --install | --remove"
+        echo "Usage: $0 --install | --remove"
         ;;
 esac
