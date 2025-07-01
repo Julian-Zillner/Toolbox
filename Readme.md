@@ -13,3 +13,7 @@ bash <(curl -s https://raw.githubusercontent.com/Julian-Zillner/Toolbox/main/ins
 ```bash
 toolbox-update
 ```
+
+### Toolbox Location
+
+/opt/toolbox
