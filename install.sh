@@ -48,7 +48,6 @@ echo "Toolbox updated successfully."
 EOF
 
 chmod +x "$UPDATE_SCRIPT_PATH"
-
 rm -f "$TMP_ZIP"
 
 echo "Toolbox installed to: $INSTALL_DIR"
