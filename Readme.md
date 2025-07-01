@@ -14,6 +14,13 @@ bash <(curl -s https://raw.githubusercontent.com/Julian-Zillner/Toolbox/main/ins
 toolbox-update
 ```
 
+## Update Installation Script
+
+```bash
+toolbox-install.sh
+
+```
+
 ### Toolbox Location
 
 /opt/toolbox
