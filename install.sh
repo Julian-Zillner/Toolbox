@@ -1,18 +1,32 @@
 #!/bin/bash
 
-REPO_URL="https://github.com/Julian-Zillner/Toolbox.git"
-CLONE_DIR="/opt/toolbox"
+REPO_ZIP_URL="https://github.com/Julian-Zillner/Toolbox/archive/refs/heads/main.zip"
+INSTALL_DIR="/opt/toolbox"
+TMP_ZIP="/tmp/toolbox-main.zip"
 
-if [ -d "$CLONE_DIR/.git" ]; then
-    echo "Repository already exists. Pulling the latest changes..."
-    git -C "$CLONE_DIR" pull
-else
-    echo "Cloning the toolbox repository into $CLONE_DIR..."
-    git clone "$REPO_URL" "$CLONE_DIR"
+
+mkdir -p "$INSTALL_DIR"
+
+
+echo "Downloading repository as ZIP..."
+curl -L -o "$TMP_ZIP" "$REPO_ZIP_URL"
+
+if [ $? -ne 0 ]; then
+    echo "Download failed. Please check your internet connection or the URL."
+    exit 1
 fi
 
 
-chmod -R +x "$CLONE_DIR/Scripts"
+echo "Extracting ZIP to $INSTALL_DIR ..."
+unzip -oq "$TMP_ZIP" -d /tmp/
 
-echo "Toolbox scripts are available in: $CLONE_DIR/Scripts"
-echo "To update them in the future, run: git -C $CLONE_DIR pull"
+
+rm -rf "$INSTALL_DIR"
+mv /tmp/Toolbox-main "$INSTALL_DIR"
+
+chmod -R +x "$INSTALL_DIR/Scripts"
+
+rm -f "$TMP_ZIP"
+
+echo "Toolbox installed to: $INSTALL_DIR"
+echo "You can run scripts from: $INSTALL_DIR/Scripts"
