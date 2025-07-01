@@ -53,5 +53,5 @@ rm -f "$TMP_ZIP"
 
 echo "Toolbox installed to: $INSTALL_DIR"
 echo "Scripts can be run from: $INSTALL_DIR/Scripts"
-echo "To update toolbox, run: toolbox-update"
+echo "To update toolbox, run: toolbox-updateddddd"
 echo "To reinstall toolbox, run: toolbox-install.sh"
